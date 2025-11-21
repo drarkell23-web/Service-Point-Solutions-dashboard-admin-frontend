@@ -1,14 +1,25 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import PrivateRoute from './components/PrivateRoute';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ChatbotWidget from "./components/ChatbotWidget";
 
-export default function App(){
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+
+function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/*" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
-    </Routes>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+
+      <ChatbotWidget />
+      <Footer />
+    </Router>
   );
 }
+
+export default App;
